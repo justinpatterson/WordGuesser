@@ -17,6 +17,7 @@ public class WordHintController : MonoBehaviour {
 		_currentWordCharacters_REAL = word.ToCharArray();
 		_currentWordCharacters_HINT = new char[ _currentWordCharacters_REAL.Length ];
 		_currentHintPhase = HintPhases.blank;
+        Debug.Log("Word Triggered: " + word);
 	}
 
 	public void TriggerUpdateHintController()
@@ -48,7 +49,7 @@ public class WordHintController : MonoBehaviour {
 
 	string GetCurrentHintCharacters()
 	{
-		return _currentWordCharacters_REAL.ToString();
+		return _currentWordCharacters_HINT.ToString();
 	}
 
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour {
 	public enum GamePhases { init, startGame, selectWord, guessWord, endGame }
-	GamePhases _currentPhase = GamePhases.init;
+	public GamePhases _currentPhase = GamePhases.init;
 
 	public WordHintController myWordHintController;
 	public WordListController myWordListController;
@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour {
 	void Update()
 	{
 		UpdateCurrentPhase();
+
 	}
 
 	public void TriggerPhaseTransition( GamePhases nextPhase )
@@ -37,7 +38,13 @@ public class GameManager : MonoBehaviour {
 			myWordListController.GenerateWordList();
 		}
 		else if(_currentPhase == GamePhases.startGame){}
-		else if(_currentPhase == GamePhases.selectWord){}
+		else if(_currentPhase == GamePhases.selectWord){
+            List<string> availablewords = myWordListController.GetWordOptions(2);
+            Debug.Log("I have picked " + availablewords.Count + "words");
+            foreach (string s in availablewords) Debug.Log("I have picked " + s); 
+
+        }
+
 		else if(_currentPhase == GamePhases.guessWord)
 		{
 			myWordHintController.TriggerNewWord( myWordListController.GetCurrentWord() );
@@ -46,8 +53,13 @@ public class GameManager : MonoBehaviour {
 	}
 	void UpdateCurrentPhase()
 	{
+        
 		if(_currentPhase == GamePhases.init){}
-		else if(_currentPhase == GamePhases.startGame){}
+		else if(_currentPhase == GamePhases.startGame){
+            if (Input.GetKeyDown(KeyCode.Space))
+                TriggerPhaseTransition(GamePhases.selectWord);
+
+        }
 		else if(_currentPhase == GamePhases.selectWord){}
 		else if(_currentPhase == GamePhases.guessWord)
 		{

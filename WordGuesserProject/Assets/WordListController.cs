@@ -9,8 +9,9 @@ public class WordListController : MonoBehaviour {
 	string _currentWord;
 
 	void Awake()
-	{	
-		_availableWords = allWords;
+	{
+        foreach (string s in allWords) _availableWords.Add(s);
+
 	}
 
 	public void GenerateWordList()
@@ -19,10 +20,19 @@ public class WordListController : MonoBehaviour {
 		//set allWords to that list
 	}
 
-	List<string> GetWordOptions(int optionCount)
+	public List<string> GetWordOptions(int optionCount)
 	{
-		//gather words based on option count
-		return new List<string>();
+        List<string> returnwords = new List<string>();
+        //gather words based on option count
+        for (int i = 0; i < optionCount; i++) {
+            if (_availableWords.Count > 0) {
+                int randomword = Random.Range(0, _availableWords.Count);
+                returnwords.Add(_availableWords[randomword]);
+                _usedWords.Add(_availableWords[randomword]);
+                _availableWords.RemoveAt(randomword);
+            }
+        }
+        return returnwords;
 	}
 
 	void SelectWord(string inputWord)
