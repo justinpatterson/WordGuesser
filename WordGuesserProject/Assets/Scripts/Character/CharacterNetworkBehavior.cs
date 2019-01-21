@@ -28,10 +28,14 @@ public class CharacterNetworkBehavior : NetworkBehaviour
         }
     }
 
+    private void Update()
+    {
+        this.GetComponentInChildren<TextMesh>().text = name;
+    }
+
     [Command]
     public void CmdNameChanged(string inputName)
     {
         name = inputName;
-        this.GetComponentInChildren<TextMesh>().text = name;
     }
 }
