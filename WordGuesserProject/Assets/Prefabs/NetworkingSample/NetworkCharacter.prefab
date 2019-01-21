@@ -25,6 +25,7 @@ GameObject:
   - component: {fileID: 114087208831966162}
   - component: {fileID: 114826007850609884}
   - component: {fileID: 114589193846168802}
+  - component: {fileID: 114595433625416572}
   m_Layer: 0
   m_Name: NetworkCharacter
   m_TagString: Untagged
@@ -134,9 +135,20 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1043354256861296}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 89cebc715d44224479b54c3b39711560, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114595433625416572
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1043354256861296}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a6e7fbafce2d3144a60b80b571e3bfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &114826007850609884
@@ -159,4 +171,4 @@ MonoBehaviour:
   m_VelocityThreshold: 0.0001
   m_SnapThreshold: 5
   m_InterpolateRotation: 1
-  m_InterpolateMovement: 1
+  m_InterpolateMovement: 5

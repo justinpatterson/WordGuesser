@@ -1,9 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Networking;
 
-public class CharacterMovement : NetworkBehaviour {
+public class CharacterMovement : MonoBehaviour {
 	void Update () {
         float h = Input.GetAxis("Horizontal");
         float v = Input.GetAxis("Vertical");
